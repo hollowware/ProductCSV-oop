@@ -4,6 +4,6 @@
 
 # Warehouse stock control.
 
-### Working with CSV. 
+### Reading from CSV. 
 
-This project is for educational porpuses only.
+#### Object oriented.
