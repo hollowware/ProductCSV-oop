@@ -5,5 +5,3 @@
 # Warehouse stock control.
 
 ### Reading from CSV. 
-
-#### Object oriented.
