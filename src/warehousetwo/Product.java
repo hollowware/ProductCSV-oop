@@ -5,6 +5,7 @@
  */
 package warehousetwo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -24,7 +25,11 @@ public class Product {
         this.quantity = quantity;
         this.expirationDate = expirationDate;
     }
-    
+ 
+    public String setStringDate (Date expirationDate) {
+        String stringDate = new SimpleDateFormat("yyyy-MM-dd").format(expirationDate);
+        return stringDate;
+    }
 
     public String getProductName() {
         return productName;
@@ -57,12 +62,10 @@ public class Product {
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
-
+    
     @Override
     public String toString() {
-        return "Product{" + "productName=" + productName + ", productCode=" + productCode + ", quantity=" + quantity + ", expirationDate=" + expirationDate + '}';
+        return "Product{" + "productName = " + productName + ", productCode = " + productCode + ", quantity = " + quantity + ", expirationDate = " + setStringDate(expirationDate) + '}';
     }
-    
-    
     
 }

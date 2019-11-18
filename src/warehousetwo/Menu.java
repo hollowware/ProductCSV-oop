@@ -17,13 +17,11 @@ import java.util.logging.Logger;
  *
  * @author IX Hero
  */
-public class Menu {
-
-    Read read = new Read();
-    WillCompare wc = new WillCompare();
-    List<Product> productList = read.readProductsFromCSV("sample.csv");
-    List<Product> orderedList = wc.orderedProductsByName(productList);
-    List<Product> mergedList = wc.mergeDuplicates(orderedList);
+public class Menu extends Read {
+    
+    List<Product> productList = readProductsFromCSV("sample.csv");
+    List<Product> orderedList = orderedProductsByName(productList);
+    List<Product> mergedList = mergeDuplicates(orderedList);
 
     public void menu() {
         System.out.println("●	Peržiūrėti trūkstamų prekių kiekius - '1'");
@@ -37,19 +35,18 @@ public class Menu {
                 System.out.println("Nurodykite prekių likutį: ");
                 int choiceTwo = scan.nextInt();
                 System.out.println();
-                List<Product> listOne = wc.checkAmount(mergedList, choiceTwo);
+                List<Product> listOne = checkAmount(mergedList, choiceTwo);
                 break;
             case 2:
                 System.out.println("Nurodykite galiojimo pabaigos datą (yyyy-MM-dd): ");
                 String choiceFour = scan.next();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = null;
                 try {
-                    date = sdf.parse(choiceFour);
+                    date = new SimpleDateFormat("yyyy-MM-dd").parse(choiceFour);
                 } catch (ParseException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                List<Product> listTwo = wc.checkExpireDate(mergedList, date);
+                List<Product> listTwo = checkExpireDate(mergedList, date);
                 break;
             case 3:
                 mergedList.forEach((products) -> {
@@ -57,10 +54,9 @@ public class Menu {
                 });
                 break;
             case 4:
-                System.exit(0);
                 break;
             default:
-                System.exit(0);
+                break;
         }
     }
 

@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author IX Hero
  */
-public class Read {
+public class Read extends WillCompare {
 
     public List<Product> readProductsFromCSV(String fileName) {
         List<Product> products = new ArrayList<>();
@@ -44,15 +44,14 @@ public class Read {
     }
 
     public Product createProduct(String[] values) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String name = values[0];
         String code = values[1];
         int quantity = Integer.parseInt(values[2]);
         Date date = null;
         try {
-            date = sdf.parse(values[3]);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(values[3]);
         } catch (ParseException ex) {
-            Logger.getLogger(Run.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Read.class.getName()).log(Level.SEVERE, null, ex);
         }
         return new Product(name, code, quantity, date);
     }
