@@ -1,7 +1,0 @@
-# Paleidę programą rasite meniu.
-# Prie kiekvieno sakinio nurodytas skaičius, kurį pateikus išsirinksite veiksmą.
-# Įvedus toliau prašomą informaciją galite patikrinti rūpimus produkcijos duomenis.
-# Gavus duomenis ir norint atlikti kitą užklausą reikia paleisti programą iš naujo.
-# Pradiniame meniu paspaudus bet kokį programos nepalaikomą skaičių programa bus išjungta. 
-
-! SVARBU: Duomenų įvedimo į sistemą patikros(validacijos) nėra. Užduotyje nereikalaujama.
